@@ -8,7 +8,7 @@ from telegram.ext import (
     ConversationHandler,
 )
 
-BOT_TOKEN = "7927069416:AAE3Irs2UoW1cxvLZsVGXuRG8xynN78KKxs"
+BOT_TOKEN = "7927069416:AAHfuqhB3N9SjypvxhGEK08i1yciSXIqs1s"
 ADMIN_ID = 902984899  # Твой Telegram ID
 
 # Шаги анкеты
