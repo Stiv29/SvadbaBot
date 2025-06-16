@@ -26,9 +26,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if msg == "📅 Свободные даты":
         await update.message.reply_text("Уточните дату, и я скажу, свободна ли она 🎯")
     elif msg == "📸 Фото":
-        await update.message.reply_text("Примеры моих работ здесь: https://vk.com/photo_example")
+        await update.message.reply_text("Примеры моих работ: https://vk.com/photo_example")
     elif msg == "🎥 Видео":
-        await update.message.reply_text("Посмотрите видео-примеры: https://vk.com/video_example")
+        await update.message.reply_text("Видео-примеры: https://vk.com/video_example")
     elif msg == "📝 Заполнить анкету":
         await update.message.reply_text("Заполните анкету: https://forms.gle/example")
     else:
@@ -36,9 +36,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
+
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
     app.run_polling()
 
 if __name__ == "__main__":
     main()
+
