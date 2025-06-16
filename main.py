@@ -22,7 +22,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message.text
-
     if msg == "📅 Свободные даты":
         await update.message.reply_text("Уточните дату, и я скажу, свободна ли она 🎯")
     elif msg == "📸 Фото":
@@ -36,12 +35,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
-
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-
     app.run_polling()
 
 if __name__ == "__main__":
     main()
-
