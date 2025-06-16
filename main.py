@@ -54,7 +54,8 @@ async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"📅 Дата: {user_data['date']}\n"
         f"🏰 Локация: {user_data['location']}\n"
         f"👥 Гостей: {user_data['guests']}\n"
-        f"📞 Телефон: {user_data['phone']}"
+        f"📞 Телефон: {user_data['phone']}\n"
+        f"💬 ID пользователя в Telegram: {update.message.from_user.id}"  # Добавлен ID пользователя в Telegram
     )
 
     # Сообщение админу
