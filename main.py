@@ -47,6 +47,9 @@ async def get_guests(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE):
     context.user_data["phone"] = update.message.text
 
+    # Получаем юзернейм Telegram аккаунта пользователя
+    telegram_username = update.message.from_user.username
+
     user_data = context.user_data
     summary = (
         f"💌 Новая заявка:\n\n"
@@ -55,7 +58,7 @@ async def get_phone(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"🏰 Локация: {user_data['location']}\n"
         f"👥 Гостей: {user_data['guests']}\n"
         f"📞 Телефон: {user_data['phone']}\n"
-        f"💬 ID пользователя в Telegram: {update.message.from_user.id}"  # Добавлен ID пользователя в Telegram
+        f"💬 Telegram: @{telegram_username}"  # Добавляем юзернейм Telegram
     )
 
     # Сообщение админу
@@ -92,4 +95,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
